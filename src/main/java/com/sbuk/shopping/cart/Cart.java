@@ -1,4 +1,4 @@
-package com.sbuk.shopping;
+package com.sbuk.shopping.cart;
 
 import com.sbuk.shopping.utility.GenericEntity;
 

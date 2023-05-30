@@ -1,4 +1,4 @@
-package com.sbuk.shopping;
+package com.sbuk.shopping.comment;
 
 import com.sbuk.shopping.utility.GenericEntity;
 

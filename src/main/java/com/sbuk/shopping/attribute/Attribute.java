@@ -1,4 +1,4 @@
-package com.sbuk.shopping;
+package com.sbuk.shopping.attribute;
 
 import com.sbuk.shopping.utility.GenericEntity;
 import jakarta.persistence.*;
