@@ -6,6 +6,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
 @Table(name = "product")
@@ -24,4 +25,10 @@ public class Product extends GenericEntity {
 
     @Column(name = "price")
     private BigDecimal price;
+
+    @OneToMany(mappedBy = "product", fetch = FetchType.LAZY)
+    private List<ProductImage> productImages;
+
+    @Column(name = "is_active")
+    private Boolean isActive;
 }

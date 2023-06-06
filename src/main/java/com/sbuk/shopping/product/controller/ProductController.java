@@ -21,7 +21,7 @@ public record ProductController(ProductService productService) {
     }
 
     @PostMapping("")
-    public ProductModel create(ProductModel productModel) throws Exception {
+    public ProductModel create(@RequestBody ProductModel productModel) throws Exception {
         return productService.create(productModel);
     }
 }

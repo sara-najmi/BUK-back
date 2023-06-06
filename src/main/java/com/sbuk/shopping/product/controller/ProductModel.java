@@ -16,6 +16,7 @@ public class ProductModel extends GenericEntity {
     private Integer id;
     private String title;
     private BigDecimal price;
+    private Boolean isActive;
 
     private List<ImageModel> images;
 
