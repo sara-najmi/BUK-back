@@ -15,4 +15,8 @@ public class DashboardCountModel {
     private Integer orderCount;
 
     private Integer productCount;
+
+    private Integer orderCountDelivered;
+
+    private Integer orderCountNotDelivered;
 }

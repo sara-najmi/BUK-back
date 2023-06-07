@@ -25,7 +25,7 @@ public class DashboardServiceImpl implements DashboardService {
 
     @Override
     public DashboardCountModel countList() {
-        return new DashboardCountModel(userRepository.countAll(), invoiceRepository.countAll(), productRepository.countAll());
+        return new DashboardCountModel(userRepository.countAll(), invoiceRepository.countAll(), productRepository.countAll(), invoiceRepository.countAllDelivered(), invoiceRepository.countAllNotDelivered());
     }
 
     @Override
