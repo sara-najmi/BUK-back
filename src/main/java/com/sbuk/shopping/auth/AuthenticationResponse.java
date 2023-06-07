@@ -1,6 +1,7 @@
 package com.sbuk.shopping.auth;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.sbuk.shopping.user.controller.UserModel;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -16,4 +17,6 @@ public class AuthenticationResponse {
   private String accessToken;
   @JsonProperty("refresh_token")
   private String refreshToken;
+
+  private UserModel user;
 }

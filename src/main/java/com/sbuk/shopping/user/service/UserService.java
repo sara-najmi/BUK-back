@@ -1,4 +1,6 @@
-package com.sbuk.shopping.user;
+package com.sbuk.shopping.user.service;
+
+import com.sbuk.shopping.user.controller.UserModel;
 
 import java.util.List;
 

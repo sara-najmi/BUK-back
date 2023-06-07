@@ -5,11 +5,13 @@ import com.sbuk.shopping.config.JwtService;
 import com.sbuk.shopping.token.Token;
 import com.sbuk.shopping.token.TokenRepository;
 import com.sbuk.shopping.token.TokenType;
-import com.sbuk.shopping.user.User;
-import com.sbuk.shopping.user.UserRepository;
+import com.sbuk.shopping.user.controller.UserModel;
+import com.sbuk.shopping.user.orm.User;
+import com.sbuk.shopping.user.orm.UserRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.BeanUtils;
 import org.springframework.http.HttpHeaders;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -17,7 +19,6 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import java.io.IOException;
-import java.util.Date;
 
 @Service
 @RequiredArgsConstructor
@@ -58,9 +59,12 @@ public class AuthenticationService {
         var refreshToken = jwtService.generateRefreshToken(user);
         revokeAllUserTokens(user);
         saveUserToken(user, jwtToken);
+        UserModel userModel = new UserModel();
+        BeanUtils.copyProperties(user,userModel);
         return AuthenticationResponse.builder()
                 .accessToken(jwtToken)
                 .refreshToken(refreshToken)
+                .user(userModel)
                 .build();
     }
 

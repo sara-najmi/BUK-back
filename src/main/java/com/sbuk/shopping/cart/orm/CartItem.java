@@ -1,7 +1,5 @@
-package com.sbuk.shopping.invoice;
+package com.sbuk.shopping.cart.orm;
 
-import com.sbuk.shopping.cart.orm.Cart;
-import com.sbuk.shopping.cart.orm.CartItem;
 import com.sbuk.shopping.product.orm.Product;
 import com.sbuk.shopping.utility.GenericEntity;
 import jakarta.persistence.*;
@@ -12,24 +10,25 @@ import lombok.NoArgsConstructor;
 import java.math.BigDecimal;
 
 @Entity
-@Table(name = "invoice_item")
+@Table(name = "cart_item")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class InvoiceItem extends GenericEntity {
+public class CartItem extends GenericEntity {
+
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Integer id;
 
-    @JoinColumn(name = "product_id", referencedColumnName = "id")
+    @JoinColumn(name = "product_id"  , referencedColumnName = "id")
     @ManyToOne(fetch = FetchType.LAZY)
     private Product product;
 
-    @JoinColumn(name = "cart_item_id", referencedColumnName = "id")
+    @JoinColumn(name = "cart_id" , referencedColumnName = "id")
     @ManyToOne(fetch = FetchType.LAZY)
-    private CartItem cartItem;
+    private Cart cart;
 
     @Column(name = "price")
     private BigDecimal price;
@@ -39,8 +38,4 @@ public class InvoiceItem extends GenericEntity {
 
     @Column(name = "total_price")
     private BigDecimal totalPrice;
-
-    @JoinColumn(name = "invoice_id", referencedColumnName = "id")
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Invoice invoice;
 }

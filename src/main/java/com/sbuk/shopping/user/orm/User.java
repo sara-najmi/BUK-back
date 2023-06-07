@@ -1,4 +1,4 @@
-package com.sbuk.shopping.user;
+package com.sbuk.shopping.user.orm;
 
 import com.sbuk.shopping.utility.GenericEntity;
 import jakarta.persistence.*;

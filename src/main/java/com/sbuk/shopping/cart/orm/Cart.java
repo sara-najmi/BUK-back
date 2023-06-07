@@ -1,6 +1,5 @@
-package com.sbuk.shopping.invoice;
+package com.sbuk.shopping.cart.orm;
 
-import com.sbuk.shopping.cart.orm.Cart;
 import com.sbuk.shopping.user.orm.User;
 import com.sbuk.shopping.utility.GenericEntity;
 import jakarta.persistence.*;
@@ -8,14 +7,14 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.math.BigDecimal;
+import java.util.List;
 
 @Entity
-@Table(name = "invoice")
+@Table(name = "cart")
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
-public class Invoice extends GenericEntity {
+public class Cart extends GenericEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,13 +25,10 @@ public class Invoice extends GenericEntity {
     @ManyToOne
     private User user;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "cart_id", referencedColumnName = "id")
-    private Cart cart;
+    @OneToMany(fetch = FetchType.LAZY, mappedBy = "cart")
+    private List<CartItem> cartItems;
 
-    @Column(name = "total")
-    private BigDecimal total;
+    @Column(name = "is_payed")
+    private Boolean isPayed = Boolean.FALSE;
 
-    @Column(name = "is_delivered")
-    private Boolean isDelivered = Boolean.FALSE;
 }

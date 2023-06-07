@@ -1,5 +1,8 @@
-package com.sbuk.shopping.user;
+package com.sbuk.shopping.user.service;
 
+import com.sbuk.shopping.user.controller.UserModel;
+import com.sbuk.shopping.user.orm.User;
+import com.sbuk.shopping.user.orm.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.BeanUtils;
 import org.springframework.stereotype.Service;

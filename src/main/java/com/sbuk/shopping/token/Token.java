@@ -1,7 +1,7 @@
 package com.sbuk.shopping.token;
 
 
-import com.sbuk.shopping.user.User;
+import com.sbuk.shopping.user.orm.User;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
 import jakarta.persistence.EnumType;

@@ -1,4 +1,4 @@
-package com.sbuk.shopping.user;
+package com.sbuk.shopping.user.controller;
 
 import com.sbuk.shopping.utility.GenericEntity;
 import lombok.AllArgsConstructor;
@@ -9,6 +9,8 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class UserModel extends GenericEntity {
+
+    private Integer id;
 
     private String firstname;
 

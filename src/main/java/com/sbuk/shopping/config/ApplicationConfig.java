@@ -1,7 +1,7 @@
 package com.sbuk.shopping.config;
 
 
-import com.sbuk.shopping.user.UserRepository;
+import com.sbuk.shopping.user.orm.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
